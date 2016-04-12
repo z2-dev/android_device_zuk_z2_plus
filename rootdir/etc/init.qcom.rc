@@ -41,8 +41,6 @@ on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
 
-    # Support legacy paths
-    symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
