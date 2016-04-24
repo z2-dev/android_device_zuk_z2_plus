@@ -161,9 +161,9 @@ PRODUCT_PACKAGES += \
 
 # Doze mode
 PRODUCT_PACKAGES += \
-    ZukDoze
+    XiaomiDoze
 
-# Fingerprint sensor
+# Fingerprint
 PRODUCT_PACKAGES += \
     fingerprintd
 
