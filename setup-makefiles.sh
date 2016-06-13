@@ -33,19 +33,11 @@ CM_ROOT="$MY_DIR"/../../..
 printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$PRODUCTMK"
 printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$ANDROIDMK"
 
-<<<<<<< HEAD
+
 # Qualcomm performance blobs - conditional as well
 # in order to support LineageOS builds
-cat << EOF >> "$PRODUCTMK"
+
 endif
-=======
-PRODUCT_PACKAGES += \\
-    CNEService \\
-    com.qualcomm.location \\
-    dpmserviceapp \\
-    qcrilmsgtunnel \\
-    QtiTetherService
->>>>>>> 05c9d04... gemini: Enable QC location services
 
 -include vendor/extra/devices.mk
 ifneq (\$(call is-qc-perf-target),true)
