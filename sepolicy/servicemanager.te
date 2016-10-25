@@ -1,0 +1,3 @@
+allow servicemanager ifaad:dir r_dir_perms;
+allow servicemanager ifaad:file r_file_perms;
+allow servicemanager ifaad:process getattr;

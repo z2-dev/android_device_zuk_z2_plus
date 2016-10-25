@@ -1,0 +1,26 @@
+type ifaad, domain;
+type ifaad_exec, exec_type, file_type;
+
+#Allow for transition from init domain to ifaad
+init_daemon_domain(ifaad)
+
+#Allow ifaad to use Binder IPC
+binder_use(ifaad)
+
+#Allow servicemanager to interact with ifaad
+binder_call(ifaad, servicemanager)
+
+#Allow alipay_app to interact with ifaad
+binder_call(ifaad, alipay_app)
+
+#Mark ifaad as a Binder service domain
+binder_service(ifaad)
+
+#Allow ifaad to be registered with service manager
+allow ifaad ifaadaemon_service:service_manager add;
+
+#Allow access to tee device
+allow ifaad tee_device:chr_file rw_file_perms;
+
+#Allow access to firmware
+r_dir_file(ifaad, firmware_file)

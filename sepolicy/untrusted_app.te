@@ -1,0 +1,1 @@
+allow untrusted_app ifaadaemon_service:service_manager { find };
