@@ -23,6 +23,9 @@
 # Boldly go.
 USE_CLANG_PLATFORM_BUILD := true
 
+# Inherit from oppo-common
+-include device/oppo/common/BoardConfigCommon.mk
+
 TARGET_OTA_ASSERT_DEVICE := z2,Z2,z2plus,z2_plus
 
 PLATFORM_PATH := device/zuk/z2_plus
@@ -142,6 +145,15 @@ OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 
+# Enable dexpreopt to speed boot time
+ifeq ($(HOST_OS),linux)
+  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user),true)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+
 # GPS
 TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
@@ -171,6 +183,9 @@ PROTOBUF_SUPPORTED := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/zuk/z2_plus/rootdir/etc/recovery/recovery.fstab
+TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
+TARGET_RELEASETOOLS_EXTENSIONS := device/qcom/common
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TW_INCLUDE_CRYPTO := true
