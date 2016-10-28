@@ -135,8 +135,8 @@ PRODUCT_PACKAGES += \
     Snap \
 
 # Gestures
-#PRODUCT_PACKAGES += \
-#    com.cyanogenmod.keyhandler
+PRODUCT_PACKAGES += \
+    com.cyanogenmod.keyhandler
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -217,7 +217,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/calib.cfg:system/etc/calib.cfg \
     $(LOCAL_PATH)/configs/capability.xml:system/etc/capability.xml
 
-# ca
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
@@ -241,6 +240,10 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+#OTA
+PRODUCT_PACKAGES += \
+    FedorOTA
+
 # Power
 PRODUCT_PACKAGES += \
     power.msm8996
@@ -263,7 +266,8 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     librmnetctl \
-    libxml2
+    libxml2 \
+    libprotobuf-cpp-full
 
 # Sensors
 PRODUCT_PACKAGES += \

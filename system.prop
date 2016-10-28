@@ -25,6 +25,12 @@ ro.telephony.default_network=22,22
 persist.panel.inversemounted=1
 persist.panel.mountflip=3
 
+# OTA Updates
+ro.ota.systemname=CM13 by Fedor917
+ro.ota.version=2016102800
+ro.ota.device=z2_plus
+ro.ota.manifest=https://will.be/soon/ota.xml
+
 debug.sf.hw=1
 debug.egl.hw=1
 debug.gralloc.enable_fb_ubwc=1
@@ -249,7 +255,6 @@ persist.radio.multisim.config=dsds
 persist.radio.primarycard=true
 persist.radio.flexmap_type=dds
 
-#liujb2 add
 persist.dpm.feature=3
 persist.radio.add_power_save=1
 

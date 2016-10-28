@@ -1,5 +1,10 @@
 [ 
   {
+    "repository": "cryscript/FedorOTA",
+    "target_path": "packages/apps/FedorOTA",
+    "revision": "m"
+  },
+  {
     "remote": "cm",
     "repository": "android_device_qcom_common",
     "target_path": "device/qcom/common",
