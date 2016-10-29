@@ -27,7 +27,7 @@ persist.panel.mountflip=3
 
 # OTA Updates
 ro.ota.systemname=CM13
-ro.ota.version=CM13_2016102900
+ro.ota.version=2016102900
 ro.ota.manifest=https://raw.githubusercontent.com/cryscript/misc/master/ota.xml
 
 debug.sf.hw=1
