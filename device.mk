@@ -240,10 +240,6 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
-#OTA
-PRODUCT_PACKAGES += \
-    FedorOTA
-
 # Power
 PRODUCT_PACKAGES += \
     power.msm8996
