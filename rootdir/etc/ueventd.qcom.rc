@@ -160,8 +160,6 @@
 /dev/smd2                 0660   bluetooth  net_bt_stack
 /dev/ttyHSL1              0660   system     system
 /dev/ttyHS1               0660   system     system
-/dev/ttyGS1               0660   system     system
-/dev/smd8                 0660   system     system
 /dev/mdm                  0660   system     radio
 /sys/devices/virtual/smdpkt/smdcntl*       open_timeout   0664 radio radio
 /dev/sdio_tty_ciq_00      0660   system     system
@@ -216,7 +214,7 @@
 /sys/devices/soc/600000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/wlan0/queues/rx-* rps_cpus 0660 system system
 /sys/devices/soc/600000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/p2p0/queues/rx-* rps_cpus 0660 system system
 
-# nfc permissions
+#nfc permissions
 /dev/nfc-nci              0660    nfc         nfc
 /dev/nq-nci               0660    nfc         nfc
 /dev/assd                 0660    nfc         nfc
@@ -238,7 +236,7 @@
 # Fingerprint device
 /dev/qbt1000              0660   system     system
 
-# ImproveTouch device
+#ImproveTouch device
 /dev/hbtp_input           0660   system     system
 /dev/hbtp_vm              0660   system     system
 

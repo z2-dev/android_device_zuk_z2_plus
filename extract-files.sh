@@ -2,7 +2,7 @@
 
 set -e
 
-export DEVICE=z2_plus
+export DEVICE=z2
 export VENDOR=zuk
 
 function extract() {

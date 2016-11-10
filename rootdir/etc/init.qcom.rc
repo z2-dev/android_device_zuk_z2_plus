@@ -24,7 +24,6 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-
 import init.qcom.power.rc
 import init.qcom.usb.rc
 
@@ -33,6 +32,7 @@ on early-init
     mkdir /bt_firmware 0771 system system
     symlink /data/tombstones /tombstones
     mkdir /dsp 0771 media media
+    mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
 
 on init
@@ -43,6 +43,8 @@ on init
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
+
+    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -90,29 +92,22 @@ on boot
     # Touchscreen
     chown system radio /proc/touchpanel/double_tap_enable
     chmod 0660 /proc/touchpanel/double_tap_enable
-
     chown root system /proc/touchpanel/camera_enable
     chmod 0660 /proc/touchpanel/camera_enable
-
     chown root system /proc/touchpanel/music_enable
     chmod 0660 /proc/touchpanel/music_enable
-
     chown root system /proc/touchpanel/flashlight_enable
     chmod 0660 /proc/touchpanel/flashlight_enable
 
     # Buttons
     chown root system /proc/s1302/key_rep
     chmod 0660 /proc/s1302/key_rep
-
     chown root system /proc/s1302/virtual_key
     chmod 0660 /proc/s1302/virtual_key
-
     chown root system /proc/tri-state-key/keyCode_top
     chmod 0660 /proc/tri-state-key/keyCode_top
-
     chown root system /proc/tri-state-key/keyCode_middle
     chmod 0660 /proc/tri-state-key/keyCode_middle
-
     chown root system /proc/tri-state-key/keyCode_bottom
     chmod 0660 /proc/tri-state-key/keyCode_bottom
 
@@ -129,7 +124,6 @@ on boot
     chmod 0664 /sys/class/graphics/fb0/modes
     chown system graphics /sys/class/graphics/fb0/sre
     chmod 0664 /sys/class/graphics/fb0/sre
-
     symlink /data/local /local
 
     # Fingerprint
@@ -160,10 +154,17 @@ on boot
     # RGB light
     chown system system /sys/class/leds/led:rgb_red/brightness
     chmod 0660 /sys/class/leds/led:rgb_red/brightness
-    chown system system /sys/class/leds/led:rgb_red/rgbblink
-    chmod 0660 /sys/class/leds/led:rgb_red/rgbblink
+    chown system system /sys/class/leds/led:rgb_green/brightness
+    chmod 0660 /sys/class/leds/led:rgb_green/brightness
+    chown system system /sys/class/leds/led:rgb_blue/brightness
+    chmod 0660 /sys/class/leds/led:rgb_blue/brightness
+
+    chown system system /sys/class/leds/led:rgb_blue/rgbbreath
+    chmod 0660 /sys/class/leds/led:rgb_blue/rgbbreath
     chown system system /sys/class/leds/led:rgb_red/rgbbreath
     chmod 0660 /sys/class/leds/led:rgb_red/rgbbreath
+    chown system system /sys/class/leds/led:rgb_green/rgbbreath
+    chmod 0660 /sys/class/leds/led:rgb_green/rgbbreath
 
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
@@ -210,11 +211,9 @@ on boot
     mkdir /dev/socket/netmgr 0750 radio radio
 
     setprop wifi.interface wlan0
-
 #   Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
     setprop net.tcp.buffersize.wifi    524288,2097152,4194304,262144,524288,1048576
-
 
     setprop ro.telephony.call_ring.multiple false
 
@@ -286,6 +285,9 @@ on boot
     # bond0 used by FST Manager
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
+    # change this when HAL3 is working
+    setprop persist.camera.HAL3.enabled 0
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/tombstones 0771 system system
@@ -296,6 +298,8 @@ on post-fs-data
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
     mkdir /persist/qc_senseid 0700 system system
+    mkdir /persist/bms 0700 root system
+    restorecon_recursive /persist
     mkdir /data/misc/dts 0770 media audio
     mkdir /data/usf 0700 system system
     mkdir /data/misc/tloc/ 0700 system drmrpc
@@ -386,8 +390,8 @@ on post-fs-data
 
     # Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
     mkdir /data/system 0775 system system
-    #symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
 
+    #symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
     # Create directories for Location services
     mkdir /data/misc/location 0770 gps gps
     mkdir /data/misc/location/mq 0770 gps gps
@@ -409,13 +413,11 @@ on post-fs-data
 
     # Create /data/time folder for time-services
     mkdir /data/time/ 0700 system system
-
     mkdir /data/audio/ 0770 media audio
 
     # Create a folder for audio delta files
     mkdir /data/audio/acdbdata 0770 media audio
     mkdir /data/audio/acdbdata/delta 0770 media audio
-
     setprop vold.post_fs_data_done 1
 
     # Create a folder for SRS to be able to create a usercfg file
@@ -753,7 +755,6 @@ on property:sys.boot_completed=1
     write /sys/block/dm-0/queue/read_ahead_kb 512
     write /sys/block/sda/queue/read_ahead_kb 512
     write /sys/block/sde/queue/read_ahead_kb 512
-
     # CPE fw_name used by sound trigger HAL
     chown media audio /sys/kernel/wcd_cpe0/fw_name
 
@@ -1185,7 +1186,6 @@ service drmdiag /system/bin/drmdiagapp
 
 on property:drmdiag.load=1
     start drmdiag
-
 on property:drmdiag.load=0
     stop drmdiag
 
@@ -1410,9 +1410,3 @@ service seemp_healthd /system/vendor/bin/seemp_healthd
     class late_start
     user system
     group system
-
-#IFAA service
-service ifaad /system/bin/ifaad
-	class late_start
-	user system
-	group system

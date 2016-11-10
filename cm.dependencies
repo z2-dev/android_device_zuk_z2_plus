@@ -1,8 +1,6 @@
-[ 
-  {
-    "remote": "cm",
-    "repository": "android_device_qcom_common",
-    "target_path": "device/qcom/common",
-    "revision": "cm-13.0"
-  }
+[
+ {
+   "repository": "android_kernel_zuk_msm8996",
+   "target_path": "kernel/zuk/msm8996"
+ }
 ]
