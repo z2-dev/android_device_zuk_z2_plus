@@ -14,7 +14,7 @@
         android:targetSdkVersion="24"/>
 
     <application
-        android:label="CmDoze"
+        android:label="ZukDoze"
         android:persistent="true">
 
         <receiver android:name="com.cyanogenmod.settings.doze.DozeReceiver">
