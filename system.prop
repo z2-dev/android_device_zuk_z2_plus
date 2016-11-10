@@ -22,23 +22,14 @@ persist.volte_enalbed_by_hw=1
 persist.radio.data_ltd_sys_ind=1
 ro.telephony.default_network=22,22
 
+#Flip panel
+persist.panel.inversemounted=1
+ro.panel.mountflip=3
 debug.sf.hw=1
 debug.egl.hw=1
 debug.gralloc.enable_fb_ubwc=1
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
-#######################################
-# Compatible with old qcom base line.
-persist.panel.inversemounted=1
-#######################################
-# Compatible with qcom c2 base line.
-# Defined in [DisplayDevice.cpp]
-# 1: H-Flip, 2: V-Flip, 3: 180 (HV Flip)
-# Qcom Relevant files:
-# [services/surfaceflinger/DisplayDevice.cpp]
-# [services/surfaceflinger/DisplayDevice.h]
-# [services/surfaceflinger/SurfaceFlinger.cpp]
-ro.panel.mountflip=3
 
 #ro.hdmi.enable=true
 persist.speaker.prot.enable=true
