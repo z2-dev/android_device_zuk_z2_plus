@@ -1,3 +1,5 @@
+# Copyright (C) 2016 The CyanogenMod Project
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -18,16 +20,17 @@
 # definition file).
 #
 
-# Boldly go.
-USE_CLANG_PLATFORM_BUILD := true
 
 TARGET_OTA_ASSERT_DEVICE := z2,Z2,z2plus,z2_plus
 
-PLATFORM_PATH := device/zuk/z2
+PLATFORM_PATH := device/zuk/z2_plus
 
 TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 
 BOARD_VENDOR := zuk
+
+# Use Snapdragon LLVM, if available
+TARGET_USE_SDCLANG := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := msm8996
@@ -77,10 +80,10 @@ BLOCK_BASED_OTA := true
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-uart"
 
 # Audio
-#AUDIO_FEATURE_ENABLED_AAC_ADTS_OFFLOAD := true
+USE_CUSTOM_AUDIO_POLICY := 1
+BOARD_USES_ALSA_AUDIO := true
+AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
 AUDIO_FEATURE_ENABLED_ACDB_LICENSE := true
-#AUDIO_FEATURE_ENABLED_APE_OFFLOAD := true
-AUDIO_FEATURE_ENABLED_ALAC_OFFLOAD := true
 AUDIO_FEATURE_ENABLED_ANC_HEADSET := true
 AUDIO_FEATURE_ENABLED_AUDIOSPHERE := true
 AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := true
@@ -90,17 +93,11 @@ AUDIO_FEATURE_ENABLED_FLAC_OFFLOAD := true
 AUDIO_FEATURE_ENABLED_FLUENCE := true
 AUDIO_FEATURE_ENABLED_HFP := true
 AUDIO_FEATURE_ENABLED_KPI_OPTIMIZE := true
-AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 AUDIO_FEATURE_ENABLED_NT_PAUSE_TIMEOUT := true
 AUDIO_FEATURE_ENABLED_PCM_OFFLOAD := true
 AUDIO_FEATURE_ENABLED_PCM_OFFLOAD_24 := true
 AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
-#AUDIO_FEATURE_ENABLED_VORBIS_OFFLOAD := true
-#AUDIO_FEATURE_ENABLED_WMA_OFFLOAD := true
-AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
-BOARD_SUPPORTS_SOUND_TRIGGER := false
-BOARD_USES_ALSA_AUDIO := true
-USE_CUSTOM_AUDIO_POLICY := 1
+AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(PLATFORM_PATH)/bluetooth
@@ -149,13 +146,22 @@ VSYNC_EVENT_PHASE_OFFSET_NS := 2000000
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 6000000
 #TARGET_USES_HWC2 := true
 
-
+# Enable dexpreopt to speed boot time
+ifeq ($(HOST_OS),linux)
+  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user),true)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
 
 # GPS
 TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
 
 # Init
+TARGET_INIT_VENDOR_LIB := libinit_z2_plus
+TARGET_RECOVERY_DEVICE_MODULES := libinit_z2_plus
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
 # Keystore
@@ -215,4 +221,4 @@ WIFI_DRIVER_MODULE_NAME := "wlan"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # inherit from the proprietary version
--include vendor/zuk/z2/BoardConfigVendor.mk
+-include vendor/zuk/z2_plus/BoardConfigVendor.mk

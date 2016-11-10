@@ -1,3 +1,5 @@
+# Copyright (C) 2016 The CyanogenMod Project
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -15,21 +17,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from oneplus3 device
-$(call inherit-product, device/zuk/z2/device.mk)
+$(call inherit-product, device/zuk/z2_plus/device.mk)
 
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-PRODUCT_NAME := cm_z2
-PRODUCT_DEVICE := z2
+PRODUCT_NAME := cm_z2_plus
+PRODUCT_DEVICE := z2_plus
 PRODUCT_MANUFACTURER := ZUK
 PRODUCT_BRAND := ZUK
-PRODUCT_MODEL := Z2
+PRODUCT_MODEL := Z2 Plus
 
 PRODUCT_GMS_CLIENTID_BASE := android-zuk
 
-TARGET_VENDOR_PRODUCT_NAME := z2
-TARGET_VENDOR_DEVICE_NAME := z2
-PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=z2 PRODUCT_NAME=z2
+TARGET_VENDOR_PRODUCT_NAME := z2_plus
+TARGET_VENDOR_DEVICE_NAME := z2_plus
+PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=z2_plus PRODUCT_NAME=z2_plus
 
 TARGET_VENDOR := zuk
