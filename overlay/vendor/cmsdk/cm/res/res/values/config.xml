@@ -22,10 +22,19 @@
     <integer name="config_proximityCheckTimeout">100</integer>
     <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>
 
-    <!-- Ambient lux at which to enable outdoor mode when LiveDisplay is enabled -->
-    <integer name="config_outdoorAmbientLux">12000</integer>
 
     <!-- Is the notification LED brightness adjustable ? Used to decide if the user can set LED brightness -->
     <bool name="config_adjustableNotificationLedBrightness">true</bool>
 
+    <!-- Color temperature settings for LiveDisplay. These were obtained by
+         measuring the display at various color balance levels. -->
+    <integer name="config_minColorTemperature">2000</integer>
+    <integer name="config_maxColorTemperature">10000</integer>
+
+    <!-- Corresponds to color balance level of zero, this is the native
+         display temperature -->
+    <integer name="config_dayColorTemperature">7000</integer>
+    <integer name="config_nightColorTemperature">5000</integer>
+    <!-- For high brightness mode -->
+    <integer name="config_outdoorAmbientLux">12000</integer>
 </resources>
