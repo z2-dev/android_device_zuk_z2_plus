@@ -128,8 +128,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    snap \
-    Camera2
+    snap
 
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
