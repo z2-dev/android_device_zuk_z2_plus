@@ -21,6 +21,16 @@ persist.radio.multisim.config=dsds
 persist.volte_enalbed_by_hw=1
 persist.radio.data_ltd_sys_ind=1
 ro.telephony.default_network=22,22
+ro.telephony.call_ring.multiple=false
+persist.radio.apm_sim_not_pwdn=1
+persist.radio.custom_ecc=1
+persist.radio.sib16_support=1
+persist.data.qmi.adb_logmask=0
+persist.oem.dump=0
+persist.radio.ignore_dom_time=5
+persist.radio.hw_mbn_update=0
+persist.radio.sw_mbn_update=0
+persist.radio.start_ota_daemon=1
 
 #Flip panel
 persist.panel.inversemounted=1
@@ -222,15 +232,11 @@ ro.sys.fw.bg_apps_limit=60
 #Camera.no_navigation_bar=true
 
 #[Begin][public][PLAT-127][modem][mbn][wangxg7][20160121] Enable mbn & VoLTE & VT & dsds property
-persist.radio.sw_mbn_update=1
 persist.radio.sw_mbn_volte=1
 persist.radio.sw_mbn_openmkt=1
-persist.radio.hw_mbn_update=1
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
-persist.radio.custom_ecc=1
 persist.radio.process_sups_ind=1
-persist.radio.multisim.config=dsds
 #[End][public][PLAT-127][modem][mbn][wangxg7][20160121] Enable mbn & VoLTE & VT & dsds property
 
 #enable flex mapping
@@ -253,9 +259,6 @@ persist.sys.leds.enabled=false
 
 ro.vendor.extension_library=libqti-perfd-client.so
 
-persist.radio.apm_sim_not_pwdn=1
-persist.radio.sib16_support=1
-persist.radio.custom_ecc=1
 audio_hal.period_size=192
 
 persist.gps.qc_nlp_in_use=1

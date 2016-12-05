@@ -1274,11 +1274,11 @@ service battery_monitor /system/bin/battery_monitor
     disabled
 
 service ril-daemon2 /system/bin/rild -c 2
-    class late_start
+    class main
     socket rild2 stream 660 root radio
     socket rild-debug2 stream 660 radio system
     user root
-    group radio cache inet misc audio sdcard_r sdcard_rw qcom_diag diag log net_raw
+    group radio cache inet misc audio log readproc wakelock qcom_diag
 
 service usb_uicc_enable /system/bin/sh /system/etc/init.qcom.uicc.sh
     class late_start
@@ -1312,7 +1312,9 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
 
 service charger /charger
     class charger
+    group log
     seclabel u:r:healthd:s0
+    writepid /dev/cpuset/system-background/tasks
 
 service ssr_diag /system/bin/ssr_diag
     class late_start
@@ -1404,6 +1406,7 @@ service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     class late_start
     user system
     group system
+    writepid /dev/cpuset/system-background/tasks
 
 # Seemp health service
 service seemp_healthd /system/vendor/bin/seemp_healthd
