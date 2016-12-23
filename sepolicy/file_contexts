@@ -5,8 +5,6 @@
 # FRP partition
 /dev/block/bootdevice/by-name/config                            u:object_r:frp_block_device:s0
 
-/system/etc/init\.qcom\.bt\.sh                                  u:object_r:bluetooth_loader_exec:s0
-
 /persist/sensors/gyro_sensitity_cal                             u:object_r:sensors_persist_file:s0
 
 /data/oemnvitems(/.*)?                                          u:object_r:nv_data_file:s0
@@ -17,6 +15,7 @@
 /sys/devices/soc/soc:fpc_fpc1020/irq                            u:object_r:sysfs_fpc_irq:s0
 /sys/devices/soc/soc:fpc_fpc1020/proximity_state                u:object_r:sysfs_fpc_proximity:s0
 
+/dev/dash                                                       u:object_r:input_device:s0
 /sys/devices/soc/.*ssusb/power_supply/usb(/.*)?                 u:object_r:sysfs_usb_supply:s0
 
 /sys/devices/soc/qpnp-smbcharger-[0-9a-f]+/power_supply/battery/capacity u:object_r:sysfs_batteryinfo:s0

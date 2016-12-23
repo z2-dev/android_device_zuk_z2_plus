@@ -1,3 +1,1 @@
 set_prop(qti, diag_prop)
-allow qti init:unix_stream_socket connectto;
-allow qti property_socket:sock_file write;
