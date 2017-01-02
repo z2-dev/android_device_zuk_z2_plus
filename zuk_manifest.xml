@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+<project name="LineageOs/android_device_qcom_common" path="device/qcom/common" remote="github" revision="cm-14.1" />
+<project name="davidevinavil/android_device_zuk_z2_plus" path="device/zuk/z2_plus" remote="github"  revision="CM14.1" />
+<project name="davidevinavil/android_vendor_zuk_z2_plus" path="vendor/zuk/z2_plus" remote="github"  revision="CM14.1" />
+<project name="Silentlys/android_kernel_zuk_msm8996" path="kernel/zuk/msm8996" remote="github" revision="cm-14.1" />
+<project name="LineageOs/android_external_sony_boringssl-compat" path="external/sony/boringssl-compat" remote="github" revision="cm-14.1" />
+<project name="LineageOs/android_external_stlport" path="external/stlport" remote="github" revision="cm-14.1" />
+<project name="TheMuppets/proprietary_vendor_qcom_binaries" path="vendor/qcom/binaries" remote="github" revision="cm-14.1" />
+</manifest>
+
+
