@@ -1,6 +1,7 @@
 #!/bin/bash
 #
-# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2013-2016, The CyanogenMod Project
+# Copyright (C) 2017, The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -34,7 +35,7 @@ printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$ANDROIDMK"
 
 
 # Qualcomm performance blobs - conditional as well
-# in order to support Cyanogen OS builds
+# in order to support LineageOS builds
 cat << EOF >> "$PRODUCTMK"
 endif
 
