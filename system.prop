@@ -89,7 +89,8 @@ persist.timed.enable=true
 #
 # 196608 is decimal for 0x30000 to report version 3.0
 # 196609 is decimal for 0x30001 to report version 3.1
-ro.opengles.version=196609
+# 196609 is decimal for 0x30002 to report version 3.2
+ro.opengles.version=196610
 
 # system property for maximum number of HFP client connections
 bt.max.hfpclient.connections=1
