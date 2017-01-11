@@ -68,11 +68,6 @@ on fs
     mount_all fstab.qcom
 
 on boot
-    # Update foreground and background cpusets
-    write /dev/cpuset/foreground/cpus 0-3
-    write /dev/cpuset/foreground/boost/cpus 2-3
-    write /dev/cpuset/background/cpus 0-1
-    write /dev/cpuset/system-background/cpus 0-3
 
     # Secure touch
     chmod 0660 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch_enable
@@ -473,6 +468,7 @@ service fingerprintd /system/bin/fingerprintd
     class late_start
     user system
     group system
+    writepid /dev/cpuset/system-background/tasks
 
 service qfp-daemon /system/bin/qfp-daemon
     class late_start
@@ -488,13 +484,14 @@ service qvop-daemon /system/bin/qvop-daemon
 service per_mgr system/bin/pm-service
     class late_start
     user system
-    group system net_raw
-    ioprio rt 4
+    group system
+    writepid /dev/cpuset/system-background/tasks
 
 service per_proxy /system/bin/pm-proxy
     class late_start
     user system
     group system
+    writepid /dev/cpuset/system-background/tasks
     disabled
 
 on property:init.svc.per_mgr=running
@@ -507,13 +504,15 @@ service qseecomd /system/bin/qseecomd
    class core
    user root
    group root
+   writepid /dev/cpuset/system-background/tasks
 
 service perfd /system/vendor/bin/perfd
-   class main
-   user root
-   socket perfd seqpacket 0666 root system
-   disabled
-   writepid /dev/cpuset/system-background/tasks
+    class main
+    user root
+    group root readproc
+    disabled
+    socket perfd seqpacket 0666 root system
+    writepid /dev/cpuset/system-background/tasks
 
 service seempd /system/bin/seempd
    class late_start
@@ -533,14 +532,13 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
    group root
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
+   writepid /dev/cpuset/system-background/tasks
 
 service time_daemon /system/bin/time_daemon
    class late_start
    user root
    group root
+   writepid /dev/cpuset/system-background/tasks
 
 service adsprpcd /system/bin/adsprpcd
    class main
@@ -620,12 +618,14 @@ service imsqmidaemon /system/bin/imsqmidaemon
     user system
     socket ims_qmid stream 0660 system radio
     group radio net_raw log diag
+    writepid /dev/cpuset/system-background/tasks
 
 service imsdatadaemon /system/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
     group system wifi radio inet net_raw log diag net_admin
+    writepid /dev/cpuset/system-background/tasks
     disabled
 
 service pd_mapper /system/vendor/bin/pd-mapper
@@ -653,6 +653,7 @@ service imscmservice /system/bin/imscmservice
     class main
     user system
     group radio net_raw diag diag log
+    writepid /dev/cpuset/system-background/tasks
     disabled
 
 on property:sys.ims.DATA_DAEMON_STATUS=1
@@ -818,10 +819,14 @@ on property:persist.env.fastdorm.enabled=true
 service cnd /system/bin/cnd
     class main
     socket cnd stream 660 root inet
+    group root wakelock
+    writepid /dev/cpuset/system-background/tasks
 
 service dpmd /system/bin/dpmd
     class late_start
     socket dpmd stream 660 root system
+    group system readproc
+    writepid /dev/cpuset/system-background/tasks
 
 service irsc_util /system/bin/irsc_util "/etc/sec_config"
     class core
@@ -831,15 +836,19 @@ service irsc_util /system/bin/irsc_util "/etc/sec_config"
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
+    group system wakelock
+    writepid /dev/cpuset/system-background/tasks
 
 service rfs_access /system/bin/rfs_access
     class core
     user root
     group system net_raw
+    writepid /dev/cpuset/system-background/tasks
 
 service tftp_server /system/bin/tftp_server
     class main
     user root
+    writepid /dev/cpuset/system-background/tasks
 
 on property:wc_transport.start_hci=true
     start start_hci_filter
@@ -946,10 +955,13 @@ service qmiproxy /system/bin/qmiproxy
 service qmuxd /system/bin/qmuxd
     class main
     user root
-    group radio audio bluetooth gps nfc qcom_diag
+    group radio audio bluetooth gps nfc qcom_diag wakelock
+    writepid /dev/cpuset/system-background/tasks
 
 service netmgrd /system/bin/netmgrd
     class main
+    group radio system wakelock
+    writepid /dev/cpuset/system-background/tasks
 
 service ipacm-diag /system/bin/ipacm-diag
     class main
@@ -961,16 +973,19 @@ service ipacm /system/bin/ipacm
     class main
     user net_admin
     group net_admin inet
+    writepid /dev/cpuset/system-background/tasks
 
 service qti /system/vendor/bin/qti
     class main
     user radio
     group radio net_raw qcom_diag usb net_admin
+    writepid /dev/cpuset/system-background/tasks
 
 service sensors /system/bin/sensors.qcom
     class core
     user root
     group root
+    writepid /dev/cpuset/system-background/tasks
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
@@ -1166,6 +1181,7 @@ service loc_launcher /system/bin/loc_launcher
     # loc_launcher will start as root and set its uid to gps
     class late_start
     group gps inet net_raw qcom_diag net_admin wifi
+    writepid /dev/cpuset/system-background/tasks
 
 service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
     class late_start
@@ -1413,3 +1429,9 @@ service seemp_healthd /system/vendor/bin/seemp_healthd
     class late_start
     user system
     group system
+
+#IFAA service
+service ifaad /system/bin/ifaad
+	class late_start
+	user system
+	group system
