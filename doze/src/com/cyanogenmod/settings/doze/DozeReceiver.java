@@ -24,7 +24,7 @@ import cyanogenmod.preference.RemotePreferenceUpdater;
 public class DozeReceiver extends RemotePreferenceUpdater {
 
     private static final boolean DEBUG = false;
-    private static final String TAG = "ZukDoze";
+    private static final String TAG = "OneplusDoze";
 
     private static final String DOZE_CATEGORY_KEY = "doze_device_settings";
 
