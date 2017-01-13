@@ -1,56 +1,11 @@
-on init
-    # sets up initial cpusets for ActivityManager
-    mkdir /dev/cpuset
-    mount cpuset none /dev/cpuset
-
-    # this ensures that the cpusets are present and usable, but the device's
-    # init.rc must actually set the correct cpus
-    mkdir /dev/cpuset/foreground
-    write /dev/cpuset/foreground/cpus 0
-    write /dev/cpuset/foreground/mems 0
-    mkdir /dev/cpuset/foreground/boost
-    write /dev/cpuset/foreground/boost/cpus 0
-    write /dev/cpuset/foreground/boost/mems 0
-    mkdir /dev/cpuset/background
-    write /dev/cpuset/background/cpus 0
-    write /dev/cpuset/background/mems 0
-
-    # system-background is for system tasks that should only run on
-    # little cores, not on bigs
-    # to be used only by init, so don't change system-bg permissions
-    mkdir /dev/cpuset/system-background
-    write /dev/cpuset/system-background/cpus 0
-    write /dev/cpuset/system-background/mems 0
-
-    mkdir /dev/cpuset/top-app
-    write /dev/cpuset/top-app/cpus 0
-    write /dev/cpuset/top-app/mems 0
-
-    # change permissions for all cpusets we'll touch at runtime
-    chown system system /dev/cpuset
-    chown system system /dev/cpuset/foreground
-    chown system system /dev/cpuset/foreground/boost
-    chown system system /dev/cpuset/background
-    chown system system /dev/cpuset/system-background
-    chown system system /dev/cpuset/top-app
-    chown system system /dev/cpuset/tasks
-    chown system system /dev/cpuset/foreground/tasks
-    chown system system /dev/cpuset/foreground/boost/tasks
-    chown system system /dev/cpuset/background/tasks
-    chown system system /dev/cpuset/system-background/tasks
-    chown system system /dev/cpuset/top-app/tasks
-
-    # set system-background to 0775 so SurfaceFlinger can touch it
-    chmod 0775 /dev/cpuset/system-background
-
-    chmod 0664 /dev/cpuset/foreground/tasks
-    chmod 0664 /dev/cpuset/foreground/boost/tasks
-    chmod 0664 /dev/cpuset/background/tasks
-    chmod 0664 /dev/cpuset/system-background/tasks
-    chmod 0664 /dev/cpuset/top-app/tasks
-    chmod 0664 /dev/cpuset/tasks
-
 on boot
+    # Update foreground and background cpusets
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/foreground/boost/cpus 0-3
+    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/top-app/cpus 0-3
+
     # Enable sched boost
     write /proc/sys/kernel/sched_boost 1
 

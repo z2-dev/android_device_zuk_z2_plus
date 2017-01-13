@@ -93,42 +93,40 @@ fi
 
 target=`getprop ro.board.platform`
 
+#ifdef VENDOR_EDIT
+boot_mode=`getprop ro.boot.ftm_mode`
+echo "boot_mode: $boot_mode" > /dev/kmsg
+case "$boot_mode" in
+    "ftm_at" | "ftm_rf" | "ftm_wlan" | "ftm_mos")
+    usb_config=`getprop persist.sys.usb.config`
+    echo "BEFORE boot_mode: $usb_config" > /dev/kmsg
+    if [ "$usb_config" != "diag,adb" ] ; then
+        setprop persist.sys.usb.config diag,adb
+    fi
+    ;;
+esac
+usb_config=`getprop persist.sys.usb.config`
+echo "AFTER boot_mode: $usb_config" > /dev/kmsg
+#endif
+
 #
 # Allow USB enumeration with default PID/VID
 #
 baseband=`getprop ro.baseband`
 echo 1  > /sys/class/android_usb/f_mass_storage/lun/nofua
 usb_config=`getprop persist.sys.usb.config`
+echo "BEFORE: $usb_config" > /dev/kmsg
 case "$usb_config" in
-    "" | "adb") #USB persist config not set, select default configuration
+    "" | "adb" | "none") #USB persist config not set, select default configuration
       case "$esoc_link" in
-          "HSIC")
-              setprop persist.sys.usb.config diag,diag_mdm,serial_hsic,serial_tty,rmnet_hsic,mass_storage,adb
-              setprop persist.rmnet.mux enabled
-          ;;
-          "HSIC+PCIe")
-              setprop persist.sys.usb.config diag,diag_mdm,serial_hsic,rmnet_qti_ether,mass_storage,adb
-          ;;
           "PCIe")
               setprop persist.sys.usb.config diag,diag_mdm,serial_cdev,rmnet_qti_ether,mass_storage,adb
           ;;
           *)
-          case "$baseband" in
-              "mdm")
-                   setprop persist.sys.usb.config mass_storage,adb
-              ;;
-              "mdm2")
-                   setprop persist.sys.usb.config mass_storage,adb
-              ;;
-              "sglte")
-                   setprop persist.sys.usb.config mass_storage,adb
-              ;;
-              "dsda" | "sglte2")
-                   setprop persist.sys.usb.config mass_storage,adb
-              ;;
-              "dsda2")
-                   setprop persist.sys.usb.config mass_storage,adb
-              ;;
+	  case "$soc_hwplatform" in
+	      "Dragon")
+	          setprop persist.sys.usb.config diag,adb
+	      ;;
               *)
 		case "$target" in
                         "msm8916")
@@ -145,12 +143,17 @@ case "$usb_config" in
 			    if [ "$soc_revision" == "1.0" -o "$soc_hwplatform" == "Dragon" ]
 			    then
                                setprop persist.sys.usb.config diag,adb
-			    else
-			       setprop persist.sys.usb.config diag,serial_cdev,serial_tty,rmnet_ipa,mass_storage,adb
+			    #[BSP-66]-Anderson-Disable_set_the_property.
+			    #This will ause BSP-66 issue and cause all the port enable in default.
+			    #else
+			       #setprop persist.sys.usb.config diag,serial_cdev,serial_tty,rmnet_ipa,mass_storage,adb
 			    fi
 			;;
                         "msm8909" | "msm8937")
                             setprop persist.sys.usb.config diag,serial_smd,rmnet_qti_bam,adb
+                        ;;
+                        "msm8952" | "titanium")
+                            setprop persist.sys.usb.config diag,serial_smd,rmnet_ipa,adb
                         ;;
                         *)
                             setprop persist.sys.usb.config diag,adb
@@ -160,9 +163,11 @@ case "$usb_config" in
           esac
           ;;
       esac
-    ;;
-    * ) ;; #USB persist config exists, do nothing
+      ;;
+  * ) ;; #USB persist config exists, do nothing
 esac
+
+
 
 #
 # Do target specific things
@@ -184,8 +189,10 @@ case "$target" in
              fi
          fi
     ;;
-    "msm8994" | "msm8992" | "msm8996")
+    "msm8994" | "msm8992" | "msm8996" | "titanium")
         echo BAM2BAM_IPA > /sys/class/android_usb/android0/f_rndis_qc/rndis_transports
+        echo 131072 > /sys/module/g_android/parameters/mtp_tx_req_len
+        echo 131072 > /sys/module/g_android/parameters/mtp_rx_req_len
     ;;
 esac
 
