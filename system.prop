@@ -102,11 +102,6 @@ ro.qcom.ad=1
 ro.qcom.ad.sensortype=2
 ro.qcom.ad.calib.data=/system/etc/calib.cfg
 
-#
-# System props for telephony
-# System prop to turn on CdmaLTEPhone always
-telephony.lteOnCdmaDevice=1
-
 #Simulate sdcard on /data/media
 #
 persist.fuse_sdcard=true
