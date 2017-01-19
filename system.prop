@@ -176,9 +176,6 @@ use.voice.path.for.pcm.voip=true
 #Enable multi channel aac through offload
 audio.offload.multiaac.enable=true
 
-# system prop for NFC DT
-ro.nfc.port=I2C
-
 #enable dsp gapless mode by default
 audio.offload.gapless.enabled=true
 
