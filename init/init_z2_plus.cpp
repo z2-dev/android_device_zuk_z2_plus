@@ -95,10 +95,10 @@ void vendor_load_properties() {
     int rc;
 
     rc = property_get("ro.cm.device", device, NULL);
-    if (!rc || strncmp(device, "z2plus", PROP_VALUE_MAX))
+    if (!rc || strncmp(device, "z2_plus", PROP_VALUE_MAX))
         return;
 
-        property_set("ro.product.model", "ZUK Z2 Plus");
+        property_set("ro.product.model", "Z2 Plus");
 
     init_alarm_boot_properties();
 }
