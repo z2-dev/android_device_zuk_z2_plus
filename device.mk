@@ -142,7 +142,8 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Camera2
+    Camera2 \
+    Snap
 
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
@@ -263,6 +264,7 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
+    init.qcom.bt.sh \
     ueventd.qcom.rc
 
 # RIL
