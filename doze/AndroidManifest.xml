@@ -26,7 +26,7 @@
         </receiver>
 
         <service android:name="com.cyanogenmod.settings.doze.DozeService"
-                 android:permission="OneplusDozeService">
+                 android:permission="ZukDozeService">
         </service>
 
         <activity
