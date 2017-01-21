@@ -1107,7 +1107,7 @@ service dhcpcd_bnep4 /system/bin/dhcpcd -BKLG
 service loc_launcher /system/bin/loc_launcher
     # loc_launcher will start as root and set its uid to gps
     class late_start
-    group gps inet net_raw qcom_diag net_admin wifi
+    group gps inet qcom_diag wifi
     writepid /dev/cpuset/system-background/tasks
 
 service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
