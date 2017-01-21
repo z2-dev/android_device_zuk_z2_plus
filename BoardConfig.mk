@@ -69,7 +69,7 @@ TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-TARGET_KERNEL_CONFIG := lineageos_z2plus_defconfig
+TARGET_KERNEL_CONFIG := lineageos_z2_plus_defconfig
 TARGET_KERNEL_SOURCE := kernel/zuk/msm8996
 
 # QCOM hardware
@@ -150,14 +150,6 @@ ifeq ($(HOST_OS),linux)
     endif
   endif
 endif
-
-# GPS
-TARGET_NO_RPC := true
-USE_DEVICE_SPECIFIC_GPS := true
-
-# GPS
-USE_DEVICE_SPECIFIC_GPS := true
-USE_DEVICE_SPECIFIC_LOC_API := true
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_z2_plus
