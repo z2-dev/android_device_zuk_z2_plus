@@ -32,9 +32,6 @@ persist.radio.hw_mbn_update=0
 persist.radio.sw_mbn_update=0
 persist.radio.start_ota_daemon=1
 
-#Flip panel
-persist.panel.inversemounted=1
-ro.panel.mountflip=3
 debug.sf.hw=1
 debug.egl.hw=1
 debug.gralloc.enable_fb_ubwc=1
