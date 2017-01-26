@@ -31,10 +31,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/sysinfo.h>
-#include <cutils/properties.h>
+
 #include "vendor_init.h"
+#include "property_service.h"
 #include "log.h"
 #include "util.h"
+
+char const *heapminfree;
+char const *heapmaxfree;
 
 static void init_alarm_boot_properties()
 {
@@ -67,17 +71,39 @@ static void init_alarm_boot_properties()
      }
 }
 
-void vendor_load_properties() {
-    char device[PROP_VALUE_MAX];
-    char rf_version[PROP_VALUE_MAX];
-    int rc;
+void check_device()
+{
+    struct sysinfo sys;
 
-    rc = property_get("ro.cm.device", device, NULL);
-    if (!rc || strncmp(device, "z2_plus", PROP_VALUE_MAX))
+    sysinfo(&sys);
+
+    if (sys.totalram > 3072ull * 1024 * 1024) {
+        // from - phone-xxxhdpi-4096-dalvik-heap.mk
+        heapminfree = "4m";
+        heapmaxfree = "16m";
+    } else {
+        // from - phone-xxhdpi-3072-dalvik-heap.mk
+        heapminfree = "512k";
+        heapmaxfree = "8m";
+    }
+}
+
+void vendor_load_properties()
+{
+    std::string platform;
+
+    platform = property_get("ro.board.platform");
+    if (platform != ANDROID_TARGET)
         return;
 
-        property_set("ro.product.model", "Z2 Plus");
+    check_device();
+
+    property_set("dalvik.vm.heapstartsize", "8m");
+    property_set("dalvik.vm.heapgrowthlimit", "384m");
+    property_set("dalvik.vm.heapsize", "1024m");
+    property_set("dalvik.vm.heaptargetutilization", "0.75");
+    property_set("dalvik.vm.heapminfree", heapminfree);
+    property_set("dalvik.vm.heapmaxfree", heapmaxfree);
 
     init_alarm_boot_properties();
 }
-
