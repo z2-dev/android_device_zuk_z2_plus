@@ -612,6 +612,12 @@ on property:init.svc.zygote=running
 on property:init.svc.zygote=restarting
     stop ppd
 
+service readmac /system/bin/readmac
+    class main
+    user root
+    group root
+    oneshot
+
 service energy-awareness /system/bin/energy-awareness
     class main
     user root
