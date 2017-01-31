@@ -74,6 +74,7 @@ media.aac_51_output_enabled=true
 #
 # system props for the data modules
 #
+persist.data.iwlan.enable=true
 ro.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=true
 persist.data.mode=concurrent
