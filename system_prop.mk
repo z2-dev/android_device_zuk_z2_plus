@@ -66,6 +66,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.panel.inversemounted=1 \
     ro.panel.mountflip=3
 
+# Google
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opa.eligible_device=true
+
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.hw=1 \
