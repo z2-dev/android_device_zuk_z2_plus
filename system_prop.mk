@@ -61,6 +61,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.qfp=false 
 
+# Flip panel
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.panel.inversemounted=1 \
+    ro.panel.mountflip=3
+
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.hw=1 \
