@@ -25,8 +25,9 @@
         <ListPreference android:persistent="false" android:entries="@array/hardware_keys_action_entries" android:title="@string/hardware_keys_double_tap_title" android:key="hardware_keys_home_double_tap" android:dialogTitle="@string/hardware_keys_double_tap_title" android:entryValues="@array/hardware_keys_action_values" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/hardware_keys_utouch_settings_title">
-      <ListPreference android:persistent="false" android:entries="@array/hardware_keys_action_entries" android:title="@string/hardware_keys_menu_key_title" android:key="hardware_keys_menu_press" android:dialogTitle="@string/hardware_keys_action" android:entryValues="@array/hardware_keys_action_values" />
-      <ListPreference android:persistent="false" android:entries="@array/hardware_keys_action_entries" android:title="@string/hardware_keys_appswitch_key_title" android:key="hardware_keys_app_switch_press" android:dialogTitle="@string/hardware_keys_action" android:entryValues="@array/hardware_keys_action_values" />
+      <ListPreference android:persistent="false" android:entries="@array/hardware_keys_action_entries" android:title="@string/hardware_keys_long_tap_key_title" android:key="hardware_keys_assist_press" android:dialogTitle="@string/hardware_keys_action" android:entryValues="@array/hardware_keys_action_values" />
+      <ListPreference android:persistent="false" android:entries="@array/hardware_keys_action_entries" android:title="@string/hardware_keys_swipe_right_key_title" android:key="hardware_keys_menu_press" android:dialogTitle="@string/hardware_keys_action" android:entryValues="@array/hardware_keys_action_values" />
+      <ListPreference android:persistent="false" android:entries="@array/hardware_keys_action_entries" android:title="@string/hardware_keys_swipe_left_key_title" android:key="hardware_keys_app_switch_press" android:dialogTitle="@string/hardware_keys_action" android:entryValues="@array/hardware_keys_action_values" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/hardware_keys_back_key_title" android:key="back_key">
         <cyanogenmod.preference.CMSystemSettingSwitchPreference android:title="@string/button_wake_title" android:key="back_wake_screen" android:defaultValue="false" />
