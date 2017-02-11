@@ -1,2 +1,5 @@
-allow netmgrd diag_prop:property_service set;
-get_prop(netmgrd, diag_prop);
+type_transition netmgrd system_data_file:file netmgrd_data_file "log.txt";
+
+allow netmgrd self:capability dac_override;
+allow netmgrd netmgrd_data_file:file rw_file_perms;
+
