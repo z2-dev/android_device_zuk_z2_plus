@@ -2415,8 +2415,8 @@
         <ctl name="SLIM TX8 MUX" value="DEC8" />
         <ctl name="ADC MUX8" value="AMIC" />
         <ctl name="AMIC MUX8" value="ADC3" />
-        <ctl name="ADC1 Volume" value="10" />
-	<ctl name="ADC3 Volume" value="10" />
+        <ctl name="ADC1 Volume" value="20" />
+	<ctl name="ADC3 Volume" value="20" />
         <ctl name="SLIM_0_TX Channels" value="Two" />
     </path>
 
