@@ -1,0 +1,3 @@
+allow shell rfs_system_file:dir getattr;
+allow shell su_exec:file getattr;
+
