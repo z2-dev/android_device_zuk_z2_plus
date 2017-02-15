@@ -1,0 +1,4 @@
+allow priv_app device:dir r_dir_perms;
+allow priv_app rfs_system_file:dir r_dir_perms;
+
+
