@@ -90,8 +90,8 @@ public class KeyHandler implements DeviceKeyHandler {
                     // home has just been pressed, so short tap is a fluke. deny!
                     if (DEBUG) {
                         Log.d(TAG, "handleKeyEvent: mRecentPress is true, ignore short tap");
-                        return true;
-                    }
+                    }                       
+                    return true;
                 }
                 break;
             case LONG_TAP_SCANCODE:
