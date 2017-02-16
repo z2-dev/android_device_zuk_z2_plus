@@ -17,16 +17,17 @@
 package com.cyanogenmod.settings.device;
 
 import android.content.Context;
-import android.os.Vibrator;
+import android.os.Handler;
+import android.util.Log;
 import android.view.KeyEvent;
 
 import com.android.internal.os.DeviceKeyHandler;
 
-import cyanogenmod.providers.CMSettings;
-
 public class KeyHandler implements DeviceKeyHandler {
 
     private static final String TAG = KeyHandler.class.getSimpleName();
+    private static final boolean DEBUG = true;
+
 
     // Supported scancodes
     private static final int PRESS_SCANCODE = 102;
@@ -35,19 +36,38 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int SWIPE_RIGHT_SCANCODE = 249;
     private static final int SWIPE_LEFT_SCANCODE = 254;
 
+    /**
+     * How much we should wait before allowing short taps after home is pressed
+     */
+    private static final long PRESS_DELAY_THRESHOLD_MS = 300;
+
 
     private final Context mContext;
-    private Vibrator mVibrator;
+    private Handler mHandler;
     private boolean mPressDown;
+    private boolean mRecentPress;
+
+    private final Runnable mUnlockRunnable;
 
     public KeyHandler(Context context) {
         mContext = context;
         mPressDown = false;
-
-        mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        if (mVibrator == null || !mVibrator.hasVibrator()) {
-            mVibrator = null;
-        }
+        mHandler = new Handler();
+        mUnlockRunnable = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (DEBUG) {
+                      Log.d(TAG,"sleeping for " + PRESS_DELAY_THRESHOLD_MS + " ms");
+                    }
+                    Thread.sleep(PRESS_DELAY_THRESHOLD_MS);
+                } catch (InterruptedException e) {
+                    Log.e(TAG, "run: ", e);
+                } finally {
+                  releasePressDelay();
+                }
+            }
+        };
     }
 
     public boolean handleKeyEvent(KeyEvent event) {
@@ -57,18 +77,26 @@ public class KeyHandler implements DeviceKeyHandler {
             case PRESS_SCANCODE:
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     mPressDown = true;
-                    android.util.Log.d(TAG, "handleKeyEvent: mPressDown set to true");
+                    setPressDelay();
+                    new Thread(mUnlockRunnable).start();
+                    Log.d(TAG, "handleKeyEvent: mPressDown set to true");
                 } else {
                     mPressDown = false;
-                    android.util.Log.d(TAG, "handleKeyEvent: mPressDown set to false");
+                    Log.d(TAG, "handleKeyEvent: mPressDown set to false");
                 }
                 break;
             case TAP_SCANCODE:
-                // nothing, just let it through
+                if (readPressDelay()) {
+                    // home has just been pressed, so short tap is a fluke. deny!
+                    if (DEBUG) {
+                        Log.d(TAG, "handleKeyEvent: mRecentPress is true, ignore short tap");
+                        return true;
+                    }
+                }
                 break;
             case LONG_TAP_SCANCODE:
                 if (mPressDown) {
-                    android.util.Log.d(TAG, "handleKeyEvent: mPressDown is true, LONG_TAP ignored");
+                    Log.d(TAG, "handleKeyEvent: mPressDown is true, LONG_TAP ignored");
                     return true;
                 }
                 break;
@@ -85,6 +113,27 @@ public class KeyHandler implements DeviceKeyHandler {
 
         return false;
 
+    }
+
+    private synchronized void setPressDelay() {
+        if (DEBUG) {
+            Log.d(TAG, "setPressDelay() called");
+        }
+        this.mRecentPress = true;
+    }
+
+    private synchronized void releasePressDelay() {
+        if (DEBUG) {
+            Log.d(TAG, "releasePressDelay() called");
+        }
+        this.mRecentPress = false;
+    }
+
+    private synchronized boolean readPressDelay() {
+        if (DEBUG){
+            Log.d(TAG, "readPressDelay called, returning " + this.mRecentPress);
+        }
+        return this.mRecentPress;
     }
 
 }
