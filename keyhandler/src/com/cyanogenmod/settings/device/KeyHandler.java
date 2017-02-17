@@ -39,7 +39,7 @@ public class KeyHandler implements DeviceKeyHandler {
     /**
      * How much we should wait before allowing short taps after home is pressed
      */
-    private static final long PRESS_DELAY_THRESHOLD_MS = 300;
+    private static final long PRESS_DELAY_THRESHOLD_MS = 400;
 
 
     private final Context mContext;
@@ -90,7 +90,7 @@ public class KeyHandler implements DeviceKeyHandler {
                     // home has just been pressed, so short tap is a fluke. deny!
                     if (DEBUG) {
                         Log.d(TAG, "handleKeyEvent: mRecentPress is true, ignore short tap");
-                    }                       
+                    }
                     return true;
                 }
                 break;
