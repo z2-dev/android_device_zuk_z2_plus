@@ -21,7 +21,6 @@
 # definition file).
 #
 
-TARGET_BUILD_VARIANT:=user
 
 TARGET_OTA_ASSERT_DEVICE := z2,Z2,z2plus,z2_plus
 
