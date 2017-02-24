@@ -274,6 +274,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     sensors.msm8996
 
+# FlipFlap
+PRODUCT_PACKAGES += \
+    FlipFlap
+
 # Wifi
 PRODUCT_PACKAGES += \
     ipacm \
@@ -307,3 +311,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_SYSTEM_SERVER_JARS += com.cyanogenmod.keyhandler
 # never dexopt the keyhandler
 $(call add-product-dex-preopt-module-config,com.cyanogenmod.keyhandler,disable)
+
+PRODUCT_PACKAGES += \
+   SnapdragonCamera
+
