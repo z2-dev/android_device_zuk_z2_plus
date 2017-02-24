@@ -27,7 +27,6 @@
 
 /sys/kernel/debug/rmt_storage/rmts                              u:object_r:debugfs_rmts:s0
 
-/system/bin/ifaadaemon                                          u:object_r:ifaadaemon_exec:s0
 /system/bin/readmac                   				u:object_r:readmac_exec:s0
 
 # Data files

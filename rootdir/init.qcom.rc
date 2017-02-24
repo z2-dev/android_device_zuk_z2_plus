@@ -142,7 +142,7 @@ on boot
     #added touch gesture wake node permission
     chown system system /sys/devices/virtual/touch/tp_dev/gesture_on
     chmod 0660 /sys/devices/virtual/touch/tp_dev/gesture_on
-    
+
     # USB
     chown system system /sys/module/dwc3/parameters/usb30_disabled
     chmod 0660 /sys/module/dwc3/parameters/usb30_disabled
@@ -1295,9 +1295,3 @@ service seemp_healthd /system/vendor/bin/seemp_healthd
     class late_start
     user system
     group system
-
-#IFAA service
-service ifaad /system/bin/ifaad
-	class late_start
-	user system
-	group system
