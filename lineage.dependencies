@@ -1,19 +1,15 @@
 [
  {
-   "repository": "android_kernel_zuk_msm8996",
-   "target_path": "kernel/zuk/msm8996"
- },
- {
-   "repository": "android_vendor_zuk_z2_plus",
-   "target_path": "vendor/zuk/z2_plus"
- },
- {
    "repository": "android_device_qcom_common",
    "target_path": "device/qcom/common"
  },
  {
    "repository": "android_vendor_qcom_binaries",
    "target_path": "vendor/qcom/binaries"
+ },
+ {
+    "repository": "android_packages_apps_FlipFlap",
+    "target_path": "packages/apps/FlipFlap"
  },
  {
    "repository": "android_packages_resources_devicesettings",
