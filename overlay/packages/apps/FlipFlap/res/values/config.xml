@@ -27,11 +27,11 @@
      4 Iceview style case where the entire screen is visible
 
      For example, a device with Asus Circle Cover would set 2 -->
-    <integer name="config_deviceCoverType">1</integer>
+    <integer name="config_deviceCoverType">2</integer>
 
-    <!-- Define main circle parameters (config_deviceCoverType == 1) -->
-    <integer name="x_offset" translatable="false">50</integer>
-    <integer name="y_offset" translatable="false">30</integer>
-    <integer name="radius_offset" translatable="false">10</integer>
+    <!-- Define main circle parameters (config_deviceCoverType == 2) -->
+    <integer name="x_offset" translatable="false">-10</integer>
+    <integer name="y_offset" translatable="false">-75</integer>
+    <integer name="radius_offset" translatable="false">-120</integer>
 
 </resources>
