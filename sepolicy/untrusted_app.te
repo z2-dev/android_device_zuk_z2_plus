@@ -1,0 +1,1 @@
+allow untrusted_app proc_stat:file r_file_perms;
