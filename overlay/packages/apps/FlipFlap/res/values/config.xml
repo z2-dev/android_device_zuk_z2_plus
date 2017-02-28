@@ -30,8 +30,8 @@
     <integer name="config_deviceCoverType">2</integer>
 
     <!-- Define main circle parameters (config_deviceCoverType == 2) -->
-    <integer name="x_offset" translatable="false">-10</integer>
-    <integer name="y_offset" translatable="false">-75</integer>
-    <integer name="radius_offset" translatable="false">-120</integer>
+    <integer name="x_offset" translatable="false">-5</integer>
+    <integer name="y_offset" translatable="false">-80</integer>
+    <integer name="radius_offset" translatable="false">-110</integer>
 
 </resources>
