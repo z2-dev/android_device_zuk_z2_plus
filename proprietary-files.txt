@@ -677,7 +677,6 @@ vendor/lib64/libFidoCryptoJNI.so
 vendor/lib64/libFidoCrypto.so
 vendor/lib64/libFIDOKeyProvisioning.so
 vendor/lib64/libFidoSuiJNI.so
-vendor/lib64/libmm-disp-apis.so
 vendor/lib64/libNimsWrap.so
 vendor/lib64/libqc-opt.so
 vendor/lib64/libqti-at.so
@@ -696,8 +695,6 @@ vendor/lib/libFIDOKeyProvisioning.so
 vendor/lib/libFidoSuiJNI.so
 vendor/lib/libjni_dualcamera.so
 vendor/lib/liblqe.so
-vendor/lib/libmm-disp-apis.so
-vendor/lib/libmm-qdcm.so
 vendor/lib/libnetmgr.so
 vendor/lib/libNimsWrap.so
 vendor/lib/libqc-opt.so
