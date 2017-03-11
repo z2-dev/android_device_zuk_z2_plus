@@ -28,6 +28,9 @@
 on init
     write /sys/class/android_usb/android0/f_rndis/wceis 1
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+    write /sys/class/android_usb/android0/iManufacturer ShenQi Inc.
+    write /sys/class/android_usb/android0/iProduct Z2-PLUS
+    write /sys/class/android_usb/android0/f_mass_storage/inquiry_string "ShenQi  Z2-PLUS         0100"
 
 on fs
     mkdir /dev/usb-ffs 0770 shell shell
