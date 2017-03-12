@@ -839,7 +839,7 @@ service bridgemgrd /system/bin/bridgemgrd
 
 service port-bridge /system/bin/port-bridge
     class main
-    user radio system
+    user radio
     group radio system inet
     oneshot
 
