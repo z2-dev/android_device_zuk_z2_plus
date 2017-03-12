@@ -4,4 +4,4 @@ allow thermal-engine sysfs_kgsl:file r_file_perms;
 allow thermal-engine system_data_file:dir w_dir_perms;
 allow thermal-engine thermal_data_file:file create_file_perms;
 allow thermal-engine sysfs_usb_supply:dir search;
-allow thermal-engine sysfs_usb_supply:file { read open };
+allow thermal-engine sysfs_usb_supply:file r_file_perms;
