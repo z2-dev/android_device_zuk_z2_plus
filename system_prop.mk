@@ -37,7 +37,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.llc=1 \
     persist.camera.llnoise=1 \
     persist.camera.stats.test=0 \
-    camera.disable_zsl_mode=1
+    camera.disable_zsl_mode=1 \
+    persist.camera.HAL3.enabled=1
 
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
