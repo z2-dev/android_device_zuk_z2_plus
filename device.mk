@@ -303,12 +303,3 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat
-
-# Keyhandler
-PRODUCT_PACKAGES += \
-    com.cyanogenmod.keyhandler
-
-PRODUCT_SYSTEM_SERVER_JARS += com.cyanogenmod.keyhandler
-# never dexopt the keyhandler
-$(call add-product-dex-preopt-module-config,com.cyanogenmod.keyhandler,disable)
-
