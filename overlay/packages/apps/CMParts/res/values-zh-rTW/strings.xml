@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="hardware_keys_action">└свВ</string>
-    <string name="hardware_keys_long_tap_key_title">ИL╟╢</string>
-    <string name="hardware_keys_swipe_left_key_title">вС╩╛</string>
-    <string name="hardware_keys_swipe_right_key_title">ср╩╛</string>
+    <string name="hardware_keys_action">Е▀∙Д╫°</string>
+    <string name="hardware_keys_long_tap_key_title">И∙╥Ф▄┴</string>
+    <string name="hardware_keys_swipe_left_key_title">Е╥╕Ф╩▒</string>
+    <string name="hardware_keys_swipe_right_key_title">Е▐ЁФ╩▒</string>
 </resources>
