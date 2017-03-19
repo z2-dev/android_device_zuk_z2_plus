@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- Copyright (c) 2014,2016 The Linux Foundation. All rights reserved.         -->
+<!-- Copyright (c) 2014, 2016, The Linux Foundation. All rights reserved.   -->
 <!--                                                                        -->
 <!-- Redistribution and use in source and binary forms, with or without     -->
 <!-- modification, are permitted provided that the following conditions are -->
@@ -32,30 +32,26 @@
     <bit_width_configs>
         <device name="SND_DEVICE_OUT_SPEAKER" bit_width="24"/>
     </bit_width_configs>
-    <native_configs>
-        <feature name="NATIVE_AUDIO_44.1" codec_support="0"/>
-    </native_configs>
-
+    <config_params>
+        <param key="spkr_1_tz_name" value="wsatz.11"/>
+        <param key="spkr_2_tz_name" value="wsatz.12"/>
+        <!-- In the below value string, first parameter indicates size -->
+        <!-- followed by perf lock options                             -->
+        <param key="perf_lock_opts" value="4, 0x101, 0x704, 0x20F, 0x1E01"/>
+        <param key="input_mic_max_count" value="4"/>
+    </config_params>
     <backend_names>
         <device name="SND_DEVICE_OUT_HEADPHONES" backend="headphones" interface="SLIMBUS_6_RX"/>
-        <device name="SND_DEVICE_OUT_ANC_HEADSET" backend="anc-headphones" interface="SLIMBUS_6_RX"/>
         <device name="SND_DEVICE_OUT_LINE" backend="headphones" interface="SLIMBUS_6_RX"/>
+        <device name="SND_DEVICE_OUT_ANC_HEADSET" backend="headphones" interface="SLIMBUS_6_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" backend="speaker-and-headphones" interface="SLIMBUS_0_RX-and-SLIMBUS_6_RX"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_ANC_HEADSET" backend="speaker-and-anc-headphones" interface="SLIMBUS_0_RX-and-SLIMBUS_6_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_AND_LINE" backend="speaker-and-headphones" interface="SLIMBUS_0_RX-and-SLIMBUS_6_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_ANC_HEADSET" backend="speaker-and-headphones" interface="SLIMBUS_0_RX-and-SLIMBUS_6_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" backend="headphones" interface="SLIMBUS_6_RX"/>
-        <device name="SND_DEVICE_OUT_VOICE_ANC_HEADSET" backend="voice-anc-headphones" interface="SLIMBUS_6_RX"/>
+       <device name="SND_DEVICE_OUT_VOICE_ANC_HEADSET" backend="headphones" interface="SLIMBUS_6_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_LINE" backend="headphones" interface="SLIMBUS_6_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_TTY_FULL_HEADPHONES" backend="headphones" interface="SLIMBUS_6_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_TTY_VCO_HEADPHONES" backend="headphones" interface="SLIMBUS_6_RX"/>
     </backend_names>
-
-    <config_params>
-        <param key="spkr_1_tz_name" value="wsatz.13"/>
-        <!-- param key="spkr_2_tz_name" value="wsatz.12"/ -->
-        <!-- In the below value string, first parameter indicates size -->
-        <!-- followed by perf lock options                             -->
-        <!--param key="perf_lock_opts" value="4, 0x101, 0x704, 0x20F, 0x1E01"/-->
-    </config_params>
 </audio_platform_info>
 
