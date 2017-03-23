@@ -41,6 +41,9 @@ TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM := msm8996
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno530
 
+# Properties
+TARGET_SYSTEM_PROP += $(PLATFORM_PATH)/system.prop
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a

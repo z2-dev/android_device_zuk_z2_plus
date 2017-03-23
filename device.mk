@@ -23,10 +23,6 @@
 
 $(call inherit-product-if-exists, vendor/zuk/z2_plus/z2_plus-vendor.mk)
 
-
-# System properties
--include $(LOCAL_PATH)/system_prop.mk
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
