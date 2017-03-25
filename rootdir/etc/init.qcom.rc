@@ -124,6 +124,10 @@ on boot
     chmod 0664 /sys/class/graphics/fb0/sre
     symlink /data/local /local
 
+    # Vibrator intensity control
+    chown system system /sys/class/timed_output/vibrator/vtg_level
+    chmod 0664 /sys/class/timed_output/vibrator/vtg_level
+
     # Fingerprint
     chown system system /sys/devices/soc/soc:fpc1020/irq
     chmod 0660 /sys/devices/soc/soc:fpc1020/irq
