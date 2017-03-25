@@ -105,6 +105,10 @@ on boot
     chown root system /proc/tri-state-key/keyCode_bottom
     chmod 0660 /proc/tri-state-key/keyCode_bottom
 
+    # U-Touch disable - KeyDisabler
+    chown system system /sys/devices/soc/soc:fpc1020/utouch_disable
+    chmod 0660 /sys/devices/soc/soc:fpc1020/utouch_disable
+
     # Graphics
     chown system graphics /sys/class/graphics/fb0/dyn_pu
     chmod 0664 /sys/class/graphics/fb0/dyn_pu
