@@ -29,7 +29,7 @@ import org.cyanogenmod.internal.util.FileUtils;
 
 public class KeyDisabler {
 
-    private static String CONTROL_PATH = "/proc/s1302/virtual_key";
+    private static String CONTROL_PATH = "/sys/devices/soc/soc:fpc1020/utouch_disable";
 
     public static boolean isSupported() {
         return FileUtils.isFileWritable(CONTROL_PATH);
