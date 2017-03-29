@@ -1,4 +1,4 @@
 allow shell rfs_system_file:dir getattr;
 allow shell proc_stat:file read;
 allow shell su_exec:file getattr;
-
+allow shell self:capability { dac_override dac_read_search sys_nice };
