@@ -26,10 +26,6 @@ $(call inherit-product-if-exists, vendor/zuk/z2_plus/z2_plus-vendor.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-# Device was launched with M
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.first_api_level=23
-
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService \

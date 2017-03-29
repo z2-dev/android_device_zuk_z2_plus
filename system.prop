@@ -44,6 +44,9 @@ persist.data.netmgrd.qos.enable=true
 ro.use_data_netmgrd=true
 persist.data.iwlan.enable=true
 
+# Device was launched with M
+ro.product.first_api_level=23
+
 # Display (Qualcomm AD)
 ro.qualcomm.cabl=2
 ro.qcom.ad=1
