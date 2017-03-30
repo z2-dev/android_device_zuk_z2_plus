@@ -226,6 +226,11 @@ vendor/lib/libchromatix_s5k2m8sx_snapshot.so
 vendor/lib/libchromatix_s5k2m8sx_zsl_preview_dw9767.so
 vendor/lib/libchromatix_s5k2m8sx_zsl_video_dw9767.so
 
+# Camera configs
+etc/camera/msm8996_camera.xml
+etc/camera/ov8865_chromatix.xml
+etc/camera/s5k2m8sx_chromatix.xml
+
 # Camera firmware
 etc/firmware/cpp_firmware_v1_10_0.fw
 etc/firmware/cpp_firmware_v1_1_1.fw
