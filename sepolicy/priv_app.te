@@ -1,5 +1,4 @@
 allow priv_app device:dir r_dir_perms;
 allow priv_app rfs_system_file:dir r_dir_perms;
-allow priv_app cache_private_backup_file:dir r_dir_perms;
-allow priv_app persist_file:dir r_dir_perms;
-allow priv_app rfs_system_file:lnk_file r_file_perms;
+
+
