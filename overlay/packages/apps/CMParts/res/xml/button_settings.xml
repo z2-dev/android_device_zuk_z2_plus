@@ -16,7 +16,6 @@
     <PreferenceCategory android:title="@string/hardware_keys_power_key_title" android:key="power_key">
         <PreferenceScreen android:title="@string/power_menu_title" android:key="power_menu" android:fragment="org.cyanogenmod.cmparts.input.PowerMenuActions" />
         <SwitchPreference android:persistent="false" android:title="@string/power_end_call_title" android:key="power_end_call" android:summary="@string/power_end_call_summary" />
-        <SwitchPreference android:persistent="false" android:title="@string/camera_double_tap_power_gesture_title" android:key="camera_double_tap_power_gesture" android:summary="@string/camera_double_tap_power_gesture_desc" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/hardware_keys_home_key_title" android:key="home_key">
         <cyanogenmod.preference.CMSystemSettingSwitchPreference android:title="@string/button_wake_title" android:key="home_wake_screen" android:defaultValue="true" />
