@@ -644,6 +644,9 @@ vendor/lib/libsensor_reg.so
 vendor/lib/sensors.oem.so
 vendor/lib/sensors.ssc.so
 
+# Subsystem restart
+bin/ssr_setup
+
 # Thermal
 vendor/bin/thermal-engine
 -vendor/lib64/libthermalclient.so
