@@ -1239,3 +1239,7 @@ service seemp_healthd /system/vendor/bin/seemp_healthd
     class late_start
     user system
     group system
+
+# Slpi restart
+on property:slpi.restart=1
+    write /sys/kernel/debug/msm_subsys/slpi restart
