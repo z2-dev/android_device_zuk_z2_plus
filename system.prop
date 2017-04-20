@@ -1,3 +1,8 @@
+# OTA URI.
+# Do not cherrypick
+# Remove if you fork
+cm.updater.uri=http://ota.ontherunvaro.com/api
+
 # Audio
 audio_hal.period_size=192
 audio.deep_buffer.media=true
