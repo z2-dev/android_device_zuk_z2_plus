@@ -261,6 +261,11 @@ PRODUCT_PACKAGES += \
     libxml2 \
     libprotobuf-cpp-full
 
+# TimeKeep
+PRODUCT_PACKAGES += \
+    timekeep \
+    TimeKeep
+
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.msm8996
