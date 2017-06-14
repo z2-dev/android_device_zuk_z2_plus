@@ -9,4 +9,4 @@ type proc_stat, fs_type;
 type debugfs_msm_core, debugfs_type, fs_type;
 type debugfs_rmts, debugfs_type, fs_type;
 type thermal_data_file, file_type;
-type netmgrd_data_file, file_type;
+type netmgr_data_file, file_type;

@@ -1,4 +1,5 @@
-type_transition netmgrd system_data_file:file netmgrd_data_file "log.txt";
-
-allow netmgrd netmgrd_data_file:file rw_file_perms;
-
+# Read and write /data/misc/netmgr
+userdebug_or_eng(`
+  allow netmgrd netmgr_data_file:dir rw_dir_perms;
+  allow netmgrd netmgr_data_file:file create_file_perms;
+')
