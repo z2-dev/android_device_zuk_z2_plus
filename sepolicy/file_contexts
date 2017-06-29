@@ -33,6 +33,3 @@
 # Data files
 /data/decrypt.txt                     u:object_r:thermal_data_file:s0
 /data/misc/netmgr/log.txt             u:object_r:netmgrd_data_file:s0
-
-# Timekeep
-/system/bin/timekeep                     u:object_r:timekeep_exec:s0

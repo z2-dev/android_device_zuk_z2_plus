@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 The CyanogenMod Project
+ * Copyright (C) 2016 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,17 +29,17 @@ import org.cyanogenmod.internal.util.FileUtils;
 
 public class KeyDisabler {
 
-    private static String CONTROL_PATH = "/sys/devices/soc/soc:fpc1020/utouch_disable";
+    private static String CONTROL_PATH = "/proc/touchpanel/capacitive_keys_enable";
 
     public static boolean isSupported() {
         return FileUtils.isFileWritable(CONTROL_PATH);
     }
 
     public static boolean isActive() {
-        return FileUtils.readOneLine(CONTROL_PATH).equals("1");
+        return FileUtils.readOneLine(CONTROL_PATH).equals("0");
     }
 
     public static boolean setActive(boolean state) {
-        return FileUtils.writeLine(CONTROL_PATH, (state ? "1" : "0"));
+        return FileUtils.writeLine(CONTROL_PATH, (state ? "0" : "1"));
     }
 }
