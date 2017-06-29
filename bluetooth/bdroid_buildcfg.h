@@ -21,14 +21,28 @@
 
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
-#define BTM_DEF_LOCAL_NAME   "ZUK Z2 Plus"
-// Disables read remote device feature
-#define BTA_SKIP_BLE_READ_REMOTE_FEAT FALSE
-#define MAX_ACL_CONNECTIONS    7
+
+#include <cutils/properties.h>
+#include <string.h>
+
+static inline const char* BtmGetDefaultName()
+{
+    char product_device[PROPERTY_VALUE_MAX];
+    property_get("ro.product.device", product_device, "");
+
+    if (strstr(product_device, "z2_plus"))
+        return "ZUK Z2";
+    if (strstr(product_device, "z2_row"))
+        return "ZUK Z2 Pro";
+
+    // Fallback to ro.product.model
+    return "";
+}
+
+#define BTM_DEF_LOCAL_NAME BtmGetDefaultName()
+#define BLUETOOTH_QTI_SW TRUE
+#define MAX_ACL_CONNECTIONS   16
 #define MAX_L2CAP_CHANNELS    16
 #define BLE_VND_INCLUDED   TRUE
-// skips conn update at conn completion
-#define BTA_BLE_SKIP_CONN_UPD  FALSE
-#define BLE_PERIPHERAL_ADV_NAME  FALSE
 #define BT_CLEAN_TURN_ON_DISABLED 1
 #endif

@@ -112,8 +112,7 @@ ro.telephony.default_network=22,22
 ro.telephony.default_cdma_sub=0
 ro.telephony.call_ring.multiple=false
 persist.data.qmi.adb_logmask=0
-persist.dbg.volte_avail_ovr=1
-persist.dbg.vt_avail_ovr=1
+
 persist.net.doxlat=true
 persist.radio.add_power_save=1
 persist.radio.apm_sim_not_pwdn=1
@@ -124,8 +123,12 @@ persist.radio.multisim.config=dsds
 persist.radio.primarycard=true
 persist.radio.rat_on=combine
 persist.radio.sib16_support=1
-persist.radio.sw_mbn_volte=1
 persist.radio.sw_mbn_openmkt=1
+
+# IMS
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+persist.radio.sw_mbn_volte=1
 
 # RmNet Data
 persist.rmnet.data.enable=true
@@ -137,6 +140,10 @@ persist.data.df.agg.dl_size=4096
 persist.data.df.mux_count=8
 persist.data.df.iwlan_mux=9
 persist.data.df.dev_name=rmnet_usb0
+
+# Google WFD settings
+persist.debug.wfd.enable=1
+persist.sys.wfd.virtual=0
 
 # Storage
 persist.fuse_sdcard=true
