@@ -40,14 +40,10 @@ fi
 setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
 
 # Copyright headers and guards
-write_headers
+write_headers "z2_plus"
 
-# Device specific files
+
 write_makefiles "$MY_DIR"/proprietary-files.txt
-
-# Common Qualcomm files
-printf '\n' >> "$PRODUCTMK"
-write_makefiles "$MY_DIR"/proprietary-files-qc.txt
 
 cat << EOF >> "$ANDROIDMK"
 \$(shell mkdir -p \$(PRODUCT_OUT)/system/vendor/lib/egl && pushd \$(PRODUCT_OUT)/system/vendor/lib > /dev/null && ln -s egl/libEGL_adreno.so libEGL_adreno.so && popd > /dev/null)
