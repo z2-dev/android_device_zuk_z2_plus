@@ -26,8 +26,5 @@ TARGET_OTA_ASSERT_DEVICE := z2_plus
 # Kernel
 TARGET_KERNEL_CONFIG := z2_plus_defconfig
 
-# Properties
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-
 # Inherit from the proprietary version
 -include vendor/zuk/z2_plus/BoardConfigVendor.mk
