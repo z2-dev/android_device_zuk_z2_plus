@@ -1,3 +1,0 @@
-allow ims diag_prop:property_service set;
-allow ims self:capability net_raw;
-get_prop(ims, diag_prop);

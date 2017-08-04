@@ -1,1 +1,0 @@
-allow hostapd hostapd:chr_file { read write };

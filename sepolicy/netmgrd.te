@@ -1,5 +1,0 @@
-# Read and write /data/misc/netmgr
-userdebug_or_eng(`
-  allow netmgrd netmgr_data_file:dir rw_dir_perms;
-  allow netmgrd netmgr_data_file:file create_file_perms;
-')
