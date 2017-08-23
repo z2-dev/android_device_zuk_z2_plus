@@ -512,7 +512,7 @@ vendor/lib/libimsmedia_jni.so
 vendor/lib/librcc.so
 vendor/lib/libvoice-svc.so
 
-# Init (move do device!)
+# Init (move to device!)
 etc/init.ath3k.bt.sh
 etc/init.crda.sh
 etc/init.leds.sh
@@ -522,7 +522,6 @@ etc/init.qcom.fm.sh
 etc/init.qcom.post_boot.sh
 etc/init.qcom.sdio.sh
 etc/init.qcom.uicc.sh
-etc/init.qcom.zram.sh
 
 # IPA
 bin/ipacm-diag
