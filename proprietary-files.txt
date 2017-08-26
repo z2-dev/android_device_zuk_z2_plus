@@ -301,7 +301,6 @@ framework/ConnectivityExt.jar
 -priv-app/CNEService/CNEService.apk
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneqmiutils.so
-vendor/lib64/libcneconn.so
 vendor/lib64/libcne.so
 vendor/lib64/libvendorconn.so
 vendor/lib64/libwms.so
@@ -309,7 +308,6 @@ vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
 vendor/lib/libcneapiclient.so
 vendor/lib/libcneqmiutils.so
-vendor/lib/libcneconn.so
 vendor/lib/libcne.so
 vendor/lib/libvendorconn.so
 vendor/lib/libwms.so
@@ -366,9 +364,17 @@ vendor/lib/hw/gatekeeper.msm8996.so
 
 # GPS
 bin/loc_launcher
+bin/xtwifi-client
+bin/xtwifi-inet-agent
 etc/permissions/com.qti.location.sdk.xml
+etc/permissions/com.qualcomm.location.vzw_library.xml
 etc/permissions/com.qualcomm.location.xml
+etc/permissions/izat.xt.srv.xml
+etc/cacert_location.pem
+etc/xtra_root_cert.pem
 framework/com.qti.location.sdk.jar
+framework/com.qualcomm.location.vzw_library.jar
+framework/izat.xt.srv.jar
 -lib64/libloc_api_v02.so
 lib64/libloc_ds_api.so
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
@@ -385,22 +391,19 @@ vendor/lib64/libevent_observer.so
 vendor/lib64/libflp.so
 vendor/lib64/libgdtap.so
 vendor/lib64/libgeofence.so
+vendor/lib64/libizat_client_api.so
 vendor/lib64/libizat_core.so
 vendor/lib64/liblbs_core.so
 vendor/lib64/libloc_ext.so
-vendor/lib64/libloc_xtra.so
 vendor/lib64/liblocationservice_glue.so
 vendor/lib64/liblocationservice.so
 vendor/lib64/liblowi_client.so
 vendor/lib64/liblowi_wifihal_nl.so
 vendor/lib64/liblowi_wifihal.so
-vendor/lib64/libquipc_os_api.so
 vendor/lib64/libulp2.so
 vendor/lib64/libxt_native.so
 vendor/lib64/libxtadapter.so
 vendor/lib64/libxtwifi_ulp_adaptor.so
-vendor/lib/libquipc_os_api.so
-vendor/lib/libslimclient.so
 
 # Graphics
 vendor/lib64/libsdm-color.so
@@ -413,7 +416,6 @@ vendor/lib64/libllvm-qgl.so
 vendor/lib64/libRSDriver_adreno.so
 vendor/lib64/libsdmextension.so
 vendor/lib64/libadreno_utils.so
-vendor/lib64/libuiblur.so
 vendor/lib64/libllvm-glnext.so
 vendor/lib64/librs_adreno.so
 vendor/lib64/egl/libGLESv2_adreno.so
@@ -508,15 +510,12 @@ vendor/lib64/lib-rtpcommon.so
 vendor/lib64/lib-rtpcore.so
 vendor/lib64/lib-rtpdaemoninterface.so
 vendor/lib64/lib-rtpsl.so
-vendor/lib64/libimscamera_jni.so
-vendor/lib64/libimsmedia_jni.so
 vendor/lib/librcc.so
 vendor/lib/libvoice-svc.so
 
 # Init (move to device!)
 etc/init.ath3k.bt.sh
 etc/init.crda.sh
-etc/init.leds.sh
 etc/init.qcom.coex.sh
 etc/init.qcom.debug.sh
 etc/init.qcom.fm.sh
@@ -611,8 +610,6 @@ vendor/lib64/libdisp-aba.so
 
 # QMI
 bin/irsc_util
-bin/qmuxd
-etc/data/qmi_config.xml
 etc/permissions/qti_permissions.xml
 vendor/bin/pd-mapper
 vendor/lib64/libdiag.so
@@ -662,7 +659,7 @@ etc/data/netmgr_config.xml
 etc/permissions/qcrilhook.xml
 etc/permissions/telephonyservice.xml
 -framework/qcrilhook.jar
-framework/qti-telephony-common.jar|88212913c0c44893e05e7003ec2f3e0a432a356d
+framework/qti-telephony-common.jar
 framework/QtiTelephonyServicelibrary.jar
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/qti
@@ -735,7 +732,6 @@ vendor/lib64/libFidoCryptoJNI.so
 vendor/lib64/libFidoCrypto.so
 vendor/lib64/libFIDOKeyProvisioning.so
 vendor/lib64/libFidoSuiJNI.so
-vendor/lib64/libqc-opt.so
 vendor/lib64/libqti-at.so
 vendor/lib64/libqti-gt.so
 vendor/lib64/libqti_performance.so
@@ -753,7 +749,6 @@ vendor/lib/libFidoSuiJNI.so
 vendor/lib/libjni_dualcamera.so
 vendor/lib/liblqe.so
 vendor/lib/libnetmgr.so
-vendor/lib/libqc-opt.so
 vendor/lib/libqct_resampler.so
 vendor/lib/libtsvideoprocess.so
 vendor/lib/libtzdrmgenprov.so
