@@ -659,11 +659,12 @@ etc/data/netmgr_config.xml
 etc/permissions/qcrilhook.xml
 etc/permissions/telephonyservice.xml
 -framework/qcrilhook.jar
-framework/qti-telephony-common.jar
+framework/qti-telephony-common.jar|88212913c0c44893e05e7003ec2f3e0a432a356d
 framework/QtiTelephonyServicelibrary.jar
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/qti
 vendor/lib64/libconfigdb.so
+vendor/lib64/libimsmedia_jni.so
 vendor/lib64/liblqe.so
 vendor/lib64/libmdmdetect.so
 vendor/lib64/libnetmgr.so
@@ -675,6 +676,7 @@ vendor/lib64/libril-qcril-hook-oem.so
 vendor/lib64/libsettings.so
 vendor/lib64/libsystem_health_mon.so
 vendor/lib/libmdmdetect.so
+vendor/lib/libimsmedia_jni.so
 vendor/lib/libconfigdb.so
 vendor/lib/libqcmaputils.so
 vendor/qcril.db
