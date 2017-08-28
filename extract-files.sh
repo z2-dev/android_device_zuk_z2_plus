@@ -25,4 +25,4 @@ export VENDOR=zuk
 
 export DEVICE_BRINGUP_YEAR=2016
 
-./../../$VENDOR/$DEVICE_COMMON/extract-files.sh $@
+./../../$VENDOR/$DEVICE_COMMON/extract-files.sh "$@"
