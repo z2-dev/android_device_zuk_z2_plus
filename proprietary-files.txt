@@ -77,6 +77,3 @@ vendor/lib64/libmmosal.so
 
 # RIL
 vendor/lib/libimsmedia_jni.so
-
-# Other files (todo categorize)
-etc/aanc_tuning_mixer.txt
