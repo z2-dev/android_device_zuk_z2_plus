@@ -73,9 +73,6 @@ vendor/lib64/libmmosal.so
 # RIL
 vendor/lib/libimsmedia_jni.so
 
-# Subsystem restart
-bin/ssr_setup
-
 # Other files (todo categorize)
 etc/aanc_tuning_mixer.txt
 vendor/lib/libjni_dualcamera.so
