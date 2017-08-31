@@ -62,17 +62,6 @@ vendor/lib/libmmcamera_onsemi_cat24c64_eeprom.so
 # Camera sensors
 vendor/lib/libmmcamera_s5k2m8sx.so
 
-# GPS
-bin/xtwifi-client
-bin/xtwifi-inet-agent
-etc/permissions/com.qualcomm.location.vzw_library.xml
-etc/permissions/izat.xt.srv.xml
-etc/cacert_location.pem
-etc/xtra_root_cert.pem
-framework/com.qualcomm.location.vzw_library.jar
-framework/izat.xt.srv.jar
-vendor/lib64/libizat_client_api.so
-
 # IMS
 etc/permissions/imscm.xml
 framework/imscmlibrary.jar
