@@ -56,6 +56,9 @@ vendor/lib/libchromatix_s5k2m8sx_zsl_video_dw9767.so
 etc/camera/msm8996_camera.xml
 etc/camera/s5k2m8sx_chromatix.xml
 
+# Camera eeproms
+vendor/lib/libmmcamera_onsemi_cat24c64_eeprom.so
+
 # Camera sensors
 vendor/lib/libmmcamera_s5k2m8sx.so
 
