@@ -72,3 +72,7 @@ vendor/lib64/libmmosal.so
 
 # RIL
 vendor/lib/libimsmedia_jni.so
+
+# Sensors
+etc/sensors/hals.conf
+etc/sensors/sensor_def_qcomdev.conf
