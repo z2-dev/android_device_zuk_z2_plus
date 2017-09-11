@@ -64,6 +64,7 @@ etc/camera/s5k2m8sx_chromatix.xml
 vendor/lib/libmmcamera_onsemi_cat24c64_eeprom.so
 
 # Camera sensors
+vendor/lib/libmmcamera_ov8865.so
 vendor/lib/libmmcamera_s5k2m8sx.so
 
 # IMS
