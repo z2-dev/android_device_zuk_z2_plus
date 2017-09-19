@@ -34,4 +34,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Graphics
     ro.sf.lcd_density=480 \
 # Display (Qualcomm AD)
-    ro.qualcomm.cabl=2
+    ro.qualcomm.cabl=2 \
+# Audio
+    persist.speaker.prot.enable=true

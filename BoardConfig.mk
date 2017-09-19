@@ -18,6 +18,8 @@
 # Inherit from common msm8996-common
 -include device/zuk/msm8996-common/BoardConfigCommon.mk
 
+AUDIO_FEATURE_ENABLED_SPKR_PROTECTION := true
+
 DEVICE_PATH := device/zuk/z2_plus
 
 # Assert
