@@ -32,7 +32,7 @@ TARGET_KERNEL_CONFIG := z2_plus_defconfig
 TARGET_LIGHTS_ONLY_RED_LED := true
 
 # Properties
-TARGET_SYSTEM_PROP += $(LOCAL_PATH)/system.prop
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Inherit from the proprietary version
 -include vendor/zuk/z2_plus/BoardConfigVendor.mk
