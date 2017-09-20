@@ -28,5 +28,8 @@ TARGET_OTA_ASSERT_DEVICE := z2_plus
 # Kernel
 TARGET_KERNEL_CONFIG := z2_plus_defconfig
 
+# Lights (see liblight/Android.mk in msm8996-common)
+TARGET_LIGHTS_ONLY_RED_LED := true
+
 # Inherit from the proprietary version
 -include vendor/zuk/z2_plus/BoardConfigVendor.mk
