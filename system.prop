@@ -1,0 +1,7 @@
+# Audio
+persist.speaker.prot.enable=true
+# Display (Qualcomm AD)
+ro.qualcomm.cabl=2
+# Graphics
+ro.sf.lcd_density=480
+
