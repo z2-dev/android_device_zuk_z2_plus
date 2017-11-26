@@ -46,16 +46,8 @@ vendor/lib/libmmcamera_onsemi_cat24c64_eeprom.so
 vendor/lib/libmmcamera_ov8865.so
 vendor/lib/libmmcamera_s5k2m8sx.so
 
-# IMS
-etc/permissions/imscm.xml
-framework/imscmlibrary.jar
-framework/rcsimssettings.jar
-
 # Media
 vendor/lib64/libmmosal.so
-
-# RIL
-vendor/lib/libimsmedia_jni.so
 
 # Sensors
 etc/sensors/hals.conf
